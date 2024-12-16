@@ -56,10 +56,19 @@ sequenceDiagram
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Should transient state be represented in a database diagram? Why, or why not?
-   > Your answer here
+   > No, the transient state should not be represented in the database diagram as the data is temporary prior to the submission of the order. The database diagram should only include tables that correspond to the database such as entrees, vegetables, sides, and purchases and the relationships between each of the tables. 
 2. In the **FoodTruck** module, you are **await**ing the invocataion of all of the component functions _(e.g. sales, veggie options, etc.)_. Why must you use the `await` keyword there? Explain what happens if you remove it.
-   > Your answer here
+   > When using an asynchronous process, the code can quickly initiate and perform multiple tasks without blocking the main thread. By using the await keyword, the asynchronous process that initiated the functions will pause and wait for each functions returned values and only then will the program execute. Only functions that have the await keyword will cause this pause in an asynchronous process.              
+
+   If await is removed, the asynchronous function will not wait for the results of the executed functions. Instead, it will continue running and return unresolved promises, which may appear as [object Promise] which is not the desired outcome.
+
 3. When the user is making choices by selecting radio buttons, explain how that data is retained so that the **Purchase Combo** button works correctly.
-   > Your answer here
+   > In the transientState.js module, we declared a transientState variable the contains the initial properties for the entreeId, vegetableId, and sideId. For the purposes of showcasing how the process works, we will use entrees moving forward as our example case.
+
+   In addition to declaring the transientState variable, we also created a function, setEntreeId that took the parameter of a chosenEntree and then updated the transientState.entreeId property equal to the chosenEntree. 
+
+   This function was then called within the Entrees.js module within the handleEntreeChange function that verified the change event belonged to an entree item, it took the selected entree’s value and converted it into an integer that was then passed into the setEntreeId function resulting in an updated transientState variable.
+
 4. You used the `map()` array method in the self assessment _(at least, you should have since it is a learning objective)_. Explain why that function is helpful as a replacement for a `for..of` loop.
-   > Your answer here
+   > .map allows us to iterate through the database array and execute corresponding tasks while creating a copy of that array rather than accessing the database itself which can prevent accidental overwriting.
+
