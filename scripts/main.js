@@ -3,10 +3,12 @@ import { FoodTruck } from "./FoodTruck.js"
 const mainContainer = document.querySelector("#container")
 
 const renderAllHTML = async () => {
-    debugger
     mainContainer.innerHTML = await FoodTruck()
 }
-//placeholder for event listener
+document. addEventListener("newSaleOrder", event => {
+    console.log("State of data has changed. Regenerating HTML...")
+    renderAllHTML()
+})
 
 renderAllHTML()
 

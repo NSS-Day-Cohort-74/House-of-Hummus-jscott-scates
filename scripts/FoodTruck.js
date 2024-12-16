@@ -1,4 +1,5 @@
 import { entreeOptions } from "./Entrees.js"
+import { Sales } from "./Sales.js"
 import { saveSubmissionButton } from "./saveOrderSubmission.js"
 import { sideOptions } from "./SideDishes.js"
 import { vegetableOptions } from "./Vegetables.js"
@@ -8,7 +9,7 @@ export const FoodTruck = async () => {
     const vegetableHTML = await vegetableOptions()
     const sideDishHTML = await sideOptions()
     const submissionButton = saveSubmissionButton()
-    const salesListHTML = "" //await submittedSalesList()
+    const salesListHTML = await Sales()
 
     return `
         <header class="header">
@@ -43,3 +44,4 @@ export const FoodTruck = async () => {
         </article>
     `
 }
+

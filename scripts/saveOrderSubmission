@@ -1,9 +1,0 @@
-
-//place holder for hanldeOrderSubmissionClick
-
-export const saveSubmissionButton = () => {
-    
-    //placeholder for event listener
-
-    return `<button id="purchase">Purchase Combo</button>`
-}
